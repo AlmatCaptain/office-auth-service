@@ -60,8 +60,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .httpBasic()
             .and()
             .addFilter(new JwtTokenGeneratorFilter(authenticationManager()))
-            .cors()
-            .configurationSource(corsConfigurationSource())
         ;
     }
 
