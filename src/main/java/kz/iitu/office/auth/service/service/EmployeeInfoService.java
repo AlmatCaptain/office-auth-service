@@ -21,7 +21,9 @@ public class EmployeeInfoService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Employee employee = restTemplate.getForEntity("http://localhost:8081/employee/" + s, Employee.class).getBody();
+        System.out.println("EmployeeInfoService.loadUserByUsername");
+        Employee employee =
+                restTemplate.getForEntity("http://office-employee-info:8081/employee/" + s, Employee.class).getBody();
 
         if (employee == null) {
             throw new UsernameNotFoundException("Member: " + s + " not found!");
